@@ -1,0 +1,13 @@
+"2022-10-02 16:09:09 - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+""2022-10-02 16:09:10 - ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+""2022-10-02 16:09:10 - 2 mappings in 'requestMappingHandlerMapping'
+""2022-10-02 16:09:10 - Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+""2022-10-02 16:09:10 - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+""2022-10-02 16:09:11 - 
+
+Using generated security password: f148c485-daf0-40a6-854a-fad542fc1470
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+""2022-10-02 16:30:32 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m53s420ms).
+"
