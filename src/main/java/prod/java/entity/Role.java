@@ -37,6 +37,6 @@ public class Role implements GrantedAuthority {
 
     public void setUsers(Collection<User> users) {
         this.users = users;
-    }
+    }//''
 }
 
