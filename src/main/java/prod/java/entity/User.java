@@ -32,6 +32,9 @@ public class User extends UserDetail {
     @Column(nullable = false)
     private String password;   //PAROLI
 
+    @Column(nullable = false)
+    private String email;
+
     @OneToOne
     private Attachment photo;   //USERNING AVATAR PHOTOSI
 
@@ -78,6 +81,20 @@ public class User extends UserDetail {
         grantedAuthorityList.addAll(roles);
         return grantedAuthorityList;
     }
+
+    public User(String firstName, String lastName, String phoneNumber, String email,
+                String password, String emailCode, Set<Role> roles, User sharingUser, boolean enabled, Set<Permission> permissions) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.password = password;
+        this.roles = roles;
+        this.enabled = enabled;
+        this.permissions = permissions;
+    }
+
+
 
     @Override
     public String getPassword() {

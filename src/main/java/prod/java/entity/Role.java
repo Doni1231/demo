@@ -6,7 +6,6 @@ import org.springframework.security.core.GrantedAuthority;
 import prod.java.entity.enums.RoleName;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Getter
 @Setter
@@ -27,16 +26,5 @@ public class Role implements GrantedAuthority {
     public String getAuthority() {
         return roleName.name();
     }
-
-    @ManyToMany(mappedBy = "roles")
-    private Collection<User> users;
-
-    public Collection<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(Collection<User> users) {
-        this.users = users;
-    }//''
 }
 

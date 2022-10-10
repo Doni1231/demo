@@ -6,18 +6,6 @@ import java.util.List;
 
 public enum PermissionName {
 
-
-//    VERIFY_EMAIL(Arrays.asList(RoleName.ROLE_USER, RoleName.ROLE_AGENT, RoleName.ROLE_ADMIN)),
-//    GET_STATE(Arrays.asList(RoleName.ROLE_USER, RoleName.ROLE_AGENT, RoleName.ROLE_ADMIN, RoleName.ROLE_SUPER_ADMIN)),
-//    //    GET_COUNTY, GET_PAY_TYPE,
-////    GET_COUNTRY_LIST, GET_STATE_LIST, GET_COUNTY_LIST, GET_PAY_TYPE_LIST,
-////    ADD_COUNTRY, ADD_STATE, ADD_COUNTY, ADD_PAY_TYPE,
-////    EDIT_COUNTRY, EDIT_STATE, EDIT_COUNTY, EDIT_PAY_TYPE,
-////    DELETE_COUNTRY, DELETE_STATE, DELETE_COUNTY, DELETE_PAY_TYPE,
-////    REGISTER_ROLE_USER,
-////    VERIFY_EMAIL,
-////    LOGIN
-
     //SERVICE ENTITY {started:Diyorbek}
     ADD_SERVICE("Add Service", Arrays.asList(RoleName.ROLE_ADMIN, RoleName.ROLE_SUPER_ADMIN)),
     EDIT_SERVICE("Edit Service", Arrays.asList(RoleName.ROLE_ADMIN, RoleName.ROLE_SUPER_ADMIN)),

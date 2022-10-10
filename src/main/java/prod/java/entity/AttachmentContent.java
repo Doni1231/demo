@@ -2,10 +2,7 @@ package prod.java.entity;
 
 
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import prod.java.entity.template.AbsEntity;
 
 import javax.persistence.Column;
@@ -14,9 +11,11 @@ import javax.persistence.FetchType;
 import javax.persistence.OneToOne;
 
 @EqualsAndHashCode(callSuper = true)
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Getter
+@Setter
+@ToString
 @Entity
 public class AttachmentContent extends AbsEntity {
     @OneToOne(fetch = FetchType.LAZY)
