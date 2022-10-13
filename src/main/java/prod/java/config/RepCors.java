@@ -9,7 +9,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 @Configuration
-public class RepCors implements RepositoryRestConfigurer {
+public class RepCors implements RepositoryRestConfigurer { // Rest Cors error ni to'g'irlash uchun
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
         RepositoryRestConfigurer.super.configureRepositoryRestConfiguration(config, cors);

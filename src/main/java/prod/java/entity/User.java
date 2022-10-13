@@ -35,8 +35,14 @@ public class User extends UserDetail {
     @Column(nullable = false)
     private String email;
 
+    @Column(nullable = false)
+    private String emailCode;
+
+    @Column(nullable = false)
+    private String changingEmail;
+
     @OneToOne
-    private Attachment photo;   //USERNING AVATAR PHOTOSI
+    private Attachment photo;   // USERNING AVATAR PHOTOSI
 
 
     @ManyToMany(fetch = FetchType.LAZY)
@@ -68,14 +74,6 @@ public class User extends UserDetail {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> grantedAuthorityList = new HashSet<>();
-//        permissions.forEach(permission -> {
-//            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(permission.getPermissionName().name());
-//            grantedAuthorityList.add(grantedAuthority);
-//        });
-//        roles.forEach(role -> {
-//            GrantedAuthority grantedAuthority = new SimpleGrantedAuthority(role.getRoleName().name());
-//            grantedAuthorityList.add(grantedAuthority);
-//        });
         if (permissions != null)
             grantedAuthorityList.addAll(permissions);
         grantedAuthorityList.addAll(roles);
@@ -83,17 +81,31 @@ public class User extends UserDetail {
     }
 
     public User(String firstName, String lastName, String phoneNumber, String email,
-                String password, String emailCode, Set<Role> roles, User sharingUser, boolean enabled, Set<Permission> permissions) {
+                String password, String emailCode, Set<Role> roles, boolean enabled, Set<Permission> permissions) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.email = email;
         this.password = password;
+        this.emailCode = emailCode;
         this.roles = roles;
         this.enabled = enabled;
         this.permissions = permissions;
     }
 
+
+    public User(String firstName, String lastName, String phoneNumber, String email,
+                String password, String emailCode, Set<Role> roles, boolean enabled, Attachment photo) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.password = password;
+        this.emailCode = emailCode;
+        this.roles = roles;
+        this.enabled = enabled;
+        this.photo = photo;
+    }
 
 
     @Override

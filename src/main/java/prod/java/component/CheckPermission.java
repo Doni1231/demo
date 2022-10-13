@@ -14,9 +14,9 @@ public class CheckPermission {
     PermissionRepository permissionRepository;
 
 
-//    public boolean checkPermission(UserDetails principal, String permissionName) {
-//        User user = (User) principal;
-//        return user.getPermissions().stream().anyMatch(permission ->
-//                permission.getPermissionName().equals(PermissionName.valueOf(permissionName)));
-//    }
+    public boolean checkPermission(UserDetails principal, String permissionName) {
+        User user = (User) principal;
+        return user.getPermissions().stream().anyMatch(permission ->
+                permission.getPermissionName().equals(PermissionName.valueOf(permissionName)));
+    }
 }

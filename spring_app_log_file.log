@@ -182,4 +182,5 @@ Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violate
 ""2022-10-11 15:48:08 - ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
 ""2022-10-11 15:48:08 - File system access not preferred: using SpringTemplateLoader
 ""2022-10-11 15:48:08 - Cannot find template location(s): [classpath:/templates/] (please add some templates, check your FreeMarker configuration, or set spring.freemarker.check-template-location=false)
+""2022-10-11 18:35:55 - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=12m8s114ms).
 "
