@@ -38,7 +38,6 @@ public class User extends UserDetail {
     @Column(nullable = false)
     private String emailCode;
 
-    @Column(nullable = false)
     private String changingEmail;
 
     @OneToOne

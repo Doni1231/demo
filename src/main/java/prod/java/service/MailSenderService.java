@@ -17,19 +17,15 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 import java.util.UUID;
 
 @Service
 public class MailSenderService {
-    private final JavaMailSender sender;
+    @Autowired
+    private JavaMailSender sender;
+    @Autowired
+    private Configuration config;
 
-    private final Configuration config;
-
-    public MailSenderService(JavaMailSender sender, Configuration config) {
-        this.sender = sender;
-        this.config = config;
-    }
 
     public void sendEmailForVerification(UUID code, UserDto userDto, Boolean changing) throws MessagingException, IOException, TemplateException {
         Map<String, Object> model = new HashMap<>();

@@ -3,13 +3,14 @@ package prod.java.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 import prod.java.entity.Permission;
 import prod.java.entity.enums.PermissionName;
 
 import java.util.List;
 import java.util.Set;
 
-
+@Repository
 public interface PermissionRepository extends JpaRepository<Permission, Integer> {
 //    Set<Permission> findAllByRoleName(PermissionName permissionName);
 

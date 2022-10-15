@@ -3,8 +3,11 @@ package prod.java.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Primary;
 import org.springframework.http.HttpMethod;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -22,6 +25,8 @@ import prod.java.security.JwtErrors;
 import prod.java.security.JwtTokenFilter;
 import prod.java.service.AuthService;
 
+import java.util.Properties;
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(
@@ -32,9 +37,29 @@ import prod.java.service.AuthService;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
+    @Lazy
     AuthService authService;
+
     @Autowired
     JwtErrors jwtErrors;
+
+//    @Bean
+//    public JavaMailSender javaMailSender() {
+//        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+//        mailSender.setHost("smtp.gmail.com");
+//        mailSender.setPort(587);
+//
+//        mailSender.setUsername("abdumutalibovdoni@gmail.com");
+//        mailSender.setPassword("rywoyagqpzmtpmsl");
+//
+//        Properties props = mailSender.getJavaMailProperties();
+//        props.put("mail.transport.protocol", "smtp");
+//        props.put("mail.smpt.auth", "true");
+//        props.put("mail.smtp.starttls.enable", "true");
+//        props.put("mail.debug", "true");
+//        return mailSender;
+//    }
+
 
 
     @Bean
@@ -105,7 +130,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/csrf",
                         "/webjars/**")
                 .permitAll()
-                .antMatchers("/api/")
+                .antMatchers("/api/**")
                 .permitAll()
                 .antMatchers(HttpMethod.GET)
                 .permitAll()

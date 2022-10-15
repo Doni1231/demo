@@ -32,11 +32,17 @@ public class UserDto {
     @Email
     private String email;
 
-    private UUID sharingUserId;
-
     private UUID photoId;
 
 
-
-
+    public UserDto(String firstName, String lastName, String password, String prePassword, String oldPassword, String phoneNumber, @Email String email, UUID photoId) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.password = password;
+        this.prePassword = prePassword;
+        this.oldPassword = oldPassword;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.photoId = photoId;
+    }
 }

@@ -86,7 +86,6 @@ public class DataLoader implements CommandLineRunner {
                             passwordEncoder.encode("root123"),
                             "admin123",
                             new HashSet<>(roleRepository.findAllByRoleName(RoleName.ROLE_SUPER_ADMIN)),
-                            null,
                             true,
                             new HashSet<>(permissionRepository.findAllByRoleName(RoleName.ROLE_SUPER_ADMIN.name()))
                     )

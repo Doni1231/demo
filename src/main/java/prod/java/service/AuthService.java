@@ -1,5 +1,6 @@
 package prod.java.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.rest.webmvc.ResourceNotFoundException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,33 +22,20 @@ import java.util.UUID;
 @Service
 public class AuthService implements UserDetailsService {
 
-    final
-    PasswordEncoder passwordEncoder;
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
-    final
-    RoleRepository roleRepository;
+    @Autowired
+    private RoleRepository roleRepository;
 
-    final UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
-    final
-    MailSenderService mailSender;
+    @Autowired
+    private MailSenderService mailSender;
 
-    final
-    AttachmentRepository attachmentRepository;
-
-    public AuthService(
-            UserRepository userRepository,
-            PasswordEncoder passwordEncoder,
-            RoleRepository roleRepository,
-            MailSenderService mailSender,
-            AttachmentRepository attachmentRepository
-    ) {
-        this.userRepository = userRepository;
-        this.passwordEncoder = passwordEncoder;
-        this.roleRepository = roleRepository;
-        this.mailSender = mailSender;
-        this.attachmentRepository = attachmentRepository;
-    }
+    @Autowired
+    private AttachmentRepository attachmentRepository;
 
 
     public ApiResponse registerUser(UserDto userDto) {
@@ -59,8 +47,8 @@ public class AuthService implements UserDetailsService {
             if (!checkEmailAndPhoneNumber.isSuccess())
                 return checkEmailAndPhoneNumber;
             UUID emailCode = UUID.randomUUID();
-            userRepository.save(makeUser(userDto, false, emailCode));
-            mailSender.sendEmailForVerification(emailCode, userDto, false);
+            this.userRepository.save(makeUser(userDto, false, emailCode));
+            this.mailSender.sendEmailForVerification(emailCode, userDto, false);
             return new ApiResponse("Congratulation you are successfully registered. please check your email address.", true);
         } catch (Exception e) {
             return new ApiResponse("Failed to save user", false);
@@ -116,8 +104,6 @@ public class AuthService implements UserDetailsService {
         } catch (Exception i) {
             return new ApiResponse("Email code exception", false);
         }
-
-
     }
 
 
